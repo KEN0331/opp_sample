@@ -51,11 +51,13 @@ public class Human {
 			throw new IllegalArgumentException("hp min is " + HP_MIN);
 		}
 
-		if (hp >= HP_MAX) {
+		if (hp > HP_MAX) {
 			throw new IllegalArgumentException("hp max is " + HP_MAX);
 		}
 
-		if (name == null || name.trim() == "") {
+		if (name == null
+			|| name.length() == 0
+			|| name.trim().length() == 1) {
 			throw new IllegalArgumentException("name is empty");
 		}
 	}
