@@ -9,28 +9,36 @@ public class HumanTest {
 	}
 
 	private static void testInit() {
+		new Human(1, "TEST");
+		new Human(10000, "TEST");
+
 		try {
 			Human human = new Human(0, "TEST");
+			throw new IllegalArgumentException();
 		} catch (IllegalArgumentException e) {
 			if (!e.getMessage().equals("hp min is 1")) throw new IllegalArgumentException();
 		}
 		try {
 			Human human = new Human(10001, "TEST");
+			throw new IllegalArgumentException();
 		} catch (IllegalArgumentException e) {
 			if (!e.getMessage().equals("hp max is 10000")) throw new IllegalArgumentException();
 		}
 		try {
 			Human human = new Human(1, null);
+			throw new IllegalArgumentException();
 		} catch (IllegalArgumentException e) {
 			if (!e.getMessage().equals("name is empty")) throw new IllegalArgumentException();
 		}
 		try {
 			Human human = new Human(1, "");
+			throw new IllegalArgumentException();
 		} catch (IllegalArgumentException e) {
 			if (!e.getMessage().equals("name is empty")) throw new IllegalArgumentException();
 		}
 		try {
 			Human human = new Human(1, "      　");
+			throw new IllegalArgumentException();
 		} catch (IllegalArgumentException e) {
 			if (!e.getMessage().equals("name is empty")) throw new IllegalArgumentException();
 		}
